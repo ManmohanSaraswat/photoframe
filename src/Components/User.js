@@ -15,20 +15,21 @@ const User = (props) => {
     func();
   }
   return (
-    <div className="card mr-3" style={{ width: 18 + "rem" }}>
+    <div className="card mr-3 mb-3" style={{ width: 18 + "rem" }}>
       <img
-        src="https://cdn-icons.flaticon.com/png/512/561/premium/561845.png?token=exp=1633002679~hmac=37a3f37fbf71fbf7f86b041a013d6472"
+        src={props.val.url}
         className="card-img-top"
         alt="..."
+        
       />
       <div className="card-body">
         <h5 className="card-title">
-          Name: {props.val.firstname} {props.val.lastname}{" "}
+          Name: {props.val.firstname} {props.val.id}{" "}
         </h5>
-        <p className="card-text">Email : {props.val.email}</p>
-        <button type="button" class="btn btn-dark" onClick={handleOnClick}>
+        <p className="card-text">Email : {props.val.name}</p>
+        {/* <button type="button" class="btn btn-dark" onClick={handleOnClick}>
           Delete User
-        </button>
+        </button> */}
       </div>
     </div>
   );
