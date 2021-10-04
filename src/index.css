@@ -3,7 +3,7 @@
 * {
   box-sizing: border-box;
 }
-body {
+ body {
   background: #1C8EF9 !important;
   max-height: 100vh;
   display: flex;
@@ -71,3 +71,24 @@ body, html, .App, #root, .auth-wrapper {
 .forgot-password a {
   color: #167bff;
 }
+
+body {
+  background-color: #eee
+}
+
+.time {
+  font-size: 9px !important
+}
+
+.socials i {
+  margin-right: 14px;
+  font-size: 17px;
+  color: #d2c8c8;
+  cursor: pointer
+}
+
+.feed-image img {
+  width: 100%;
+  height: 500px
+}
+

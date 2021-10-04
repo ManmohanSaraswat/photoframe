@@ -4,9 +4,11 @@ import Home from "./Components/Home";
 import {ToastContainer } from 'react-toastify';
 import Login from "./Components/Login";
 import SignUp from "./Components/Signup";
+import NewComponent from "./Components/NewComponent";
 
 function App() {
   return (
+    <>
     <Router>
       <ToastContainer />
       <Switch>
@@ -16,6 +18,7 @@ function App() {
         <Route path="/signup" component={SignUp}/>
       </Switch>
     </Router>
+    </>
   );
 }
 
