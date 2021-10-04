@@ -3,10 +3,12 @@ import { Link, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Login() {
-  
+  let history = useHistory();
+  if(localStorage.getItem("token")){
+    history.push("/home");
+  }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  let history = useHistory();
   const editEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -127,9 +129,14 @@ function Login() {
           >
             Submit
           </button>
+          <div className="d-flex justify-content-between mt-2">
+          <p className="forgot-password text-left">
+            <Link to="/signup">Create Account</Link>
+          </p>
           <p className="forgot-password text-right">
             <Link to="/signup">Forgot Password ?</Link>
           </p>
+          </div>
         </div>
       </div>
     </>
