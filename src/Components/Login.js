@@ -39,17 +39,18 @@ function Login() {
         password: password,
       }),
     };
-    fetch("http://localhost:8080/login", requestOptions).then(
+    fetch("http://192.168.0.106:8080/login", requestOptions).then(
       async (response) => {
         const isJson = response.headers
           .get("content-type")
           ?.includes("application/json");
         const data = isJson && (await response.json());
-
         if (response.status === 200) {
-          localStorage.setItem("token", data.message);
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("userid", data.userId);
+          localStorage.setItem("username", data.userName);
+          localStorage.setItem("email", email);
           history.push("/home");
-          console.log("saved in local storage");
           setEmail("");
           setPassword("");
           toast.success('Logged In Successfully!', {
@@ -63,7 +64,6 @@ function Login() {
             });
         }
         if (!response.ok) {
-          const error = (data && data.message) || response.status;
           setEmail("");
           setPassword("");
           toast.error('Invalid Credentials!', {
