@@ -23,8 +23,17 @@ const Post = (props) => {
       const data = isJson && (await response.json());
       console.log(data);
       if (response.status === 200) {
-        history.push("/login");
         toast.success("Post Deleted Successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }else{
+        toast.error(data.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

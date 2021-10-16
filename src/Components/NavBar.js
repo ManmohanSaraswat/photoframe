@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AddImage from "./AddImage";
 function NavBar() {
   function logout() {
     localStorage.removeItem("token");
   }
+
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container" id="user">
@@ -21,15 +24,9 @@ function NavBar() {
                 Welcome! {localStorage.getItem("username")}{" "}
               </h4>
             </li>
-            <li
-              className="nav-item d-flex"
-              style={{ fontSize: "30px" }}
-              data-toggle="modal"
-              data-target="#exampleModalLong"
-            >
-              <i className="fa fa-camera-retro align-self-center"></i>
-              <h4 className="nav-link align-self-center m-0">Add Post</h4>
-            </li>
+    
+    <AddImage/>
+
             <li className="nav-item align-self-center d-flex mr-5">
               <div class="dropdown show">
                 <a
@@ -60,56 +57,7 @@ function NavBar() {
             </li>
           </ul>
 
-          <div
-            class="modal fade"
-            id="exampleModalLong"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLongTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">
-                    Create Post
-                  </h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-
-                <div class="modal-body">
-                  <div class="mb-3">
-                    <textarea
-                      class="form-control"
-                      id="exampleFormControlTextarea1"
-                      placeholder="What's on your mind?"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                  <p> Hello there</p>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Post
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </nav>

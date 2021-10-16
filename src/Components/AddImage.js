@@ -57,56 +57,95 @@ function AddImage() {
         });
       }
     });
+    setIsFilePicked(false);
   };
 
   return (
     <>
-      <div className="container mt-4 mb-2">
-        <div className="d-flex justify-content-center row">
-          <div className="col-md-5">
-            <section className="panel  timeline-post-to">
-              <div className="panel-body">
+      <div
+        class="modal fade"
+        id="exampleModalLong"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Create Post
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <div class="mb-3">
                 <textarea
-                  className="form-control"
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
                   placeholder="What's on your mind?"
+                  rows="3"
                   onChange={changeDescription}
                 ></textarea>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <div className="input-group mb-3">
-                      <div className="custom-file">
-                        <input
-                          type="file"
-                          className="custom-file-input"
-                          id="inputGroupFile01"
-                          onChange={changeHandler}
-                        />
-                        <label
-                          className="custom-file-label"
-                          htmlFor="inputGroupFile01"
-                        >
-                          <a className="btn btn-sm btn-default">
-                            <i className="fa fa-camera"></i>
-                          </a>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 text-right">
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      onClick={handleSubmission}
-                    >
-                      Post
-                    </button>
-                  </div>
+                
                 </div>
+                <div className="custom-file mb-3">
+                <input
+                  type="file"
+                  className="custom-file-input"
+                  id="inputGroupFile01"
+                  onChange={changeHandler}
+                />
+                <label className="custom-file-label" htmlFor="inputGroupFile01">
+                  <a className="btn btn-sm btn-default">
+                    <i className="fa fa-camera"></i>
+                  </a>
+                </label>
               </div>
-            </section>
+              {isFilePicked? <img src=""></img> : <> </>}
+            </div>
+
+              
+
+           
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onClick={handleSubmission}
+              >
+                Post
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      <li
+        className="nav-item d-flex"
+        style={{ fontSize: "30px" }}
+        data-toggle="modal"
+        data-target="#exampleModalLong"
+      >
+        <i className="fa fa-camera-retro align-self-center"></i>
+        <h4 className="nav-link align-self-center m-0">Add Post</h4>
+      </li>
+      
     </>
   );
 }

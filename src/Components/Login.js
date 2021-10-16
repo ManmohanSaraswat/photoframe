@@ -39,7 +39,7 @@ function Login() {
         password: password,
       }),
     };
-    fetch("http://192.168.0.106:8080/login", requestOptions).then(
+    fetch("http://localhost:8080/login", requestOptions).then(
       async (response) => {
         const isJson = response.headers
           .get("content-type")
